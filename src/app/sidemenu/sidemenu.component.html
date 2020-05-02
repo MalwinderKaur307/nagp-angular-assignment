@@ -1,0 +1,16 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/dashboard">NAGP Assignment</a>
+        </div>
+        <ul class="nav navbar-nav area-change">
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/precautions">Precautions</a></li>
+            <li><a href="/updates">Latest News</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li *ngIf="!loggedIn"><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login As Admin</a></li>
+            <li *ngIf="loggedIn"><a href="javascript:void(0)" (click)="logOut()"><span class="glyphicon glyphicon-log-in"></span> LogOut</a></li>
+        </ul>
+    </div>
+</nav>

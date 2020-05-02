@@ -1,0 +1,14 @@
+[
+  {
+    "id":1,
+    "postedBy": "Admin",
+    "postedOn": "01/05/2020",
+    "postedInfo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "id":2,
+    "postedBy": "Admin",
+    "postedOn": "01/05/2020",
+    "postedInfo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  }
+]

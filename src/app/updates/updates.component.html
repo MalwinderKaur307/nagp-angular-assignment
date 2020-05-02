@@ -1,0 +1,47 @@
+<div class="container mt-3">
+    <h2>LATEST UPDATES</h2>
+    <button *ngIf="isAdmin" type="text" pButton label="Basic" (click)="op.toggle($event)">Add Update</button>
+    <div class="media border p-3" *ngFor="let col of updatedInfo">
+        <div class="media-body">
+            <h4>{{col.title}} <small><i>Posted on {{col.postedOn}}</i></small></h4>
+            <p>{{col.description}}</p>
+            <p>{{col.postedInfo}}</p>
+            <button *ngIf="isAdmin" (click)="removeUpdate(col.id)">Delete</button>
+        </div>
+    </div>
+</div>
+
+<p-overlayPanel #op [dismissable]="false" [showCloseIcon]="true"[style]="{width: '30%', height: '20%'}">
+<ng-template pTemplate class="update-form">
+        <form [formGroup]="updateForm" (submit)="addUpdate()">
+
+            <div class="sign-in-container">
+                <div #errorMessage class="common-message error-message mb-3 d-none">
+                    <span>Oh no! The data you entered is not valid. Please check it again.</span>
+                </div>
+
+                <div class="input-out with-left-icon-lg">
+                    <span class="input-left-icon">
+                    </span>
+                    <input #postedInfo type="text" formControlName="title"
+                        class="form-control custom-input custom-input-lg" placeholder="Title" id="title">
+                </div>
+                <div class="input-out with-left-icon-lg">
+                    <span class="input-left-icon">
+                    </span>
+                    <input #postedInfo type="text" formControlName="description"
+                        class="form-control custom-input custom-input-lg" placeholder="Description" id="description">
+                </div>
+                <div class="input-out with-left-icon-lg">
+                    <span class="input-left-icon">
+                    </span>
+                    <input #postedInfo type="text" formControlName="summary"
+                        class="form-control custom-input custom-input-lg" placeholder="Summary" id="summary">
+                </div>
+                <button type="submit" class="btn btn-block btn-primary btn-lg mt-3" (click)="op.hide()">Submit</button>
+            </div>
+
+        </form>
+    </ng-template>
+</p-overlayPanel>
+

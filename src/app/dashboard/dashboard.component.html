@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-xl-6">
+        <div class="card narrow failures-bad-actor-min-height">
+            <div class="row">
+                <div class="col-md-5">
+                    <h3 class="terciary-title mt-0">COVID-19 STATS</h3>
+                </div>
+                <div class="col-md-7">
+                    <p-dropdown class="ui-dropdown-sm" [options]="states" [(ngModel)]="selectedState"
+                        (onChange)="getDashboardData()" style="float: right;"></p-dropdown>
+                </div>
+            </div>
+
+
+
+            <div class="chart__wrapper">
+
+                <p-chart #statedatachart type="bar" [data]="failures">
+                </p-chart>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-xl-6">
+        <div class="card narrow failures-bad-actor-min-height">
+            <!---->
+            <div class="table-out scrollable-table" *ngIf="totalRecords > 0">
+                <p-table #dt class="return-list-table more-column with-paginator" [value]="districtData" [scrollable]="true"
+                  [style]="{width:'100%'}" [paginator]="true" [rows]="pageSize"
+                  [totalRecords]="totalRecords" [loading]="loading"
+                  [rowsPerPageOptions]="[10,30,50]" [lazyLoadOnInit]="false"
+                  [columns]="cols" [frozenColumns]="frozenCols" frozenWidth="200px">
+                  <ng-template pTemplate="colgroup" let-columns>
+                    <colgroup>
+                        <col *ngFor="let col of columns" >
+                    </colgroup>
+                  </ng-template>
+                  <ng-template pTemplate="header" let-columns>
+                    <tr>
+                      <th *ngFor="let col of columns" [pSortableColumn]="col.field" class="{{col.field + '-return-list'}}">
+                        <div>
+                          {{col.header}}
+                          <p-sortIcon [field]="col.field"></p-sortIcon>
+                        </div>
+                      </th>
+                    </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-unit let-rowData let-columns="columns">
+                    <tr [pSelectableRow]="rowData">
+                      <td *ngFor="let col of columns" class="{{col.field + '-return-list'}}">
+                        <!-- <div pTooltip="{{unit[col.field]}}"> -->
+                          {{unit[col.field]}}
+                        <!-- </div>                       -->
+                      </td>
+                    </tr>
+                  </ng-template>
+      
+                </p-table>
+              </div>
+            <!---->
+        </div>
+    </div>
+</div>

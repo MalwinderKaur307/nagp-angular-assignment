@@ -1,0 +1,31 @@
+<div class="card">
+    <div class="card-body text-center">
+        <form [formGroup]="loginForm" (submit)="login()">
+
+            <div class="sign-in-container">
+                <h2 class="secondary-title">Sign in</h2>
+
+                <div #errorMessage class="common-message error-message mb-3 d-none">
+                    <span>Oh no! The email or password you entered is not valid. Please check it again.</span>
+                </div>
+
+                <div class="input-out with-left-icon-lg">
+                    <span class="input-left-icon">
+                    </span>
+                    <input #username type="text" formControlName="username"
+                        class="form-control custom-input custom-input-lg" placeholder="Username" id="emailInput">
+                </div>
+
+                <div class="input-out with-left-icon-lg mt-3">
+                    <span class="input-left-icon">
+                    </span>
+                    <input #password type="password" formControlName="password"
+                        class="form-control custom-input custom-input-lg" placeholder="Password" id="passwordInput">
+                </div>
+
+                <button type="submit" class="btn btn-block btn-primary btn-lg mt-3">Sign in</button>
+            </div>
+
+        </form>
+    </div>
+</div>
